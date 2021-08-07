@@ -1,6 +1,4 @@
-﻿using Domain.Core.Bus;
-using MediatR;
-using MicroRabbit.Infra.Bus;
+﻿using MediatR;
 using Microsoft.CodeAnalysis.Host;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,15 +9,6 @@ namespace Import_Management
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            //Domain Bus
-            services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
-            {
-                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
-                return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
-            });
-
-
-
             //Subscriptions
             //services.AddTransient<EditUserInformationEventHandler>();
 

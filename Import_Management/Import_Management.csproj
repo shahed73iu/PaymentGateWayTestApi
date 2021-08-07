@@ -77,11 +77,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
-    <ProjectReference Include="..\Infra.Bus\Infra.Bus.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="DTO\" />
     <Folder Include="IRepository\" />
     <Folder Include="Models\" />

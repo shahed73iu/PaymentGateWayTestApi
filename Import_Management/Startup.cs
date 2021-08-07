@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Text;
 using AspNetCoreRateLimit;
-using Domain.Core.Bus;
 using Elastic.Apm.NetCoreAll;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -181,10 +180,6 @@ namespace Import_Management
 
         }
 
-        private void ConfigureEventBus(IApplicationBuilder app)
-        {
-            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-        }
 
         private void JwtConfiguration(IServiceCollection services)
         {
@@ -263,8 +258,6 @@ namespace Import_Management
                     c.RoutePrefix = "Import_Management/swagger";
                 });
             } 
-            ConfigureEventBus(app);
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
